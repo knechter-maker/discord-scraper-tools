@@ -58,10 +58,6 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Authors
 
-* **knechter** - ** - [knechter](https://github.com/knechter-maker) - **
+ knechter -  - [knechter](https://github.com/knechter-maker) - **
 
-## Acknowledgements
 
-* []()
-* []()
-* []()
