@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/knechter-maker/discord-scraper-tools">
-    <img src="images/logo2.png" alt="Logo" width="80" height="80">
+    <img src="pictures/logo2.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Discord Tools</h3>
@@ -19,7 +19,7 @@
 
 ## About The Project
 
-![Screen Shot](images/exam.PNG)
+![Screen Shot](pictures/exam.PNG)
 
 The "Discord Server User Collector" is a Python script built using the Discord.py library, designed to help server administrators easily collect a list of users and their IDs from a specific Discord server. This project can be particularly useful for server management, data analysis, or user tracking purposes.
 
