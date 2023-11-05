@@ -4,11 +4,13 @@ import sys
 
 bot = discord.Client()
 
-with open('config.json', 'r') as config_file:
-    config = json.load(config_file)
-
-token = config.get('token')
-
+try:
+    with open('config.json', 'r') as config_file:
+        config = json.load(config_file)
+        token = config.get('token')
+except Exception as e:
+    print(f"Error loading configuration: {str(e)}")
+    sys.exit(1)
 
 output_file = 'server_users.json'
 
@@ -26,18 +28,25 @@ async def on_ready():
 async def collect_server_users(server_id):
     server_data = {}
 
-    for guild in bot.guilds:
-        if guild.id == server_id:
-            print(f'Processing server: {guild.name}')
-            server_data[guild.name] = {}
+    try:
+        for guild in bot.guilds:
+            if guild.id == server_id:
+                print(f'Processing server: {guild.name}')
+                server_data[guild.name] = {}
 
-            for member in guild.members:
-                user_name = str(member)
-                user_id = member.id
-                server_data[guild.name][user_name] = user_id
+                for member in guild.members:
+                    user_name = str(member)
+                    user_id = member.id
+                    server_data[guild.name][user_name] = user_id
 
-            with open(output_file, 'w', encoding='utf-8') as file:
-                json.dump(server_data, file, ensure_ascii=False, indent=4)
+        with open(output_file, 'w', encoding='utf-8') as file:
+            json.dump(server_data, file, ensure_ascii=False, indent=4)
+            print("Userdump Ready")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
-    bot.run(token)
+    try:
+        bot.run(token)
+    except Exception as e:
+        print(f"An error occurred while running the bot: {str(e)}")
